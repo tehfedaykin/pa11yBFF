@@ -46,23 +46,17 @@
 						</div>
 					</div>
 					<ul class="small">
-						<li>9-5 Remote Software Engineer</li>
-						<li>Nonprofit Founder/Director</li>
+						<li>JavaScript Developer at Bitovi</li>
 						<li>International Speaker</li>
-						<li>Aspiring crazy plant lady</li>
+						<li>Kombucha brewin' crazy plant lady</li>
 					</ul>
 					<div class="warning">
 						<img class="plain" src="img/mature.png" alt="">
 						<p class="smaller"> <i>This talk may contain strong language, harsh truths, and serious passion.</i></p>
 					</div>
 				</section>
-				<section id="KC">
+				<!-- <section id="KC">
 					<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-					<!--
-					************* Copyright (c) 2017 Pareto Softare, LLC DBA Simplemaps.com *******************
-					************* Free for Commercial Use, full terms at  http://simplemaps.com/resources/svg-license ************
-					************* Attribution is appreciated! http://simplemaps.com ***************************
-					-->
 					<svg
 						 xmlns:dc="http://purl.org/dc/elements/1.1/"
 						 xmlns:cc="http://creativecommons.org/ns#"
@@ -491,7 +485,7 @@
 					<div class="kc-overlay fragment">
 						<img class="plain" src="img/paulrudd1.gif" alt="Paul Rudd">
 					</div>
-				</section>
+				</section> -->
 				<section id="intro-story">
 					<h2>Accessibility - why should I care?</h2>
 					<img class="plain" src="img/morechampagne.gif" alt="I don't need friends, I need more champagne - Blair">
@@ -555,7 +549,7 @@
 						<ul>
 							<li class="fragment">Physical impairments - ex. loss of limbs</li>
 							<li class="fragment">Age - affecting coordination</li>
-							<li class="fragment">Diseaes - affecting motor control</li>
+							<li class="fragment">Diseases - affecting motor control</li>
 							<li class="fragment">Struggles using mouse or keyboard</li>
 						</ul>
 					</section>
@@ -713,6 +707,10 @@
 					<h3><a href="https://github.com/pa11y/pa11y">https://github.com/pa11y/pa11y</a></h3>
 					<p>Pa11y is your automated accessibility testing pal. It runs HTML CodeSniffer from the command line for programmatic accessibility reporting.</p>
 				</section>
+				<section id="pa11y-puppeteer">
+					<h3>Pa11y + Puppeteer</h3>
+					<p>Pa11y uses Puppeteer to launch a browser instance to run tests defined using the JavaScript interface. Puppeteer allows us to crawl SPA pages and take screenshots.</p>
+				</section>
 				<section id="review">
 					<h2>Let's test some websites!</h2>
 					<img style="width: 60%" src="img/blairchuckjudge.gif" alt="Blair and Chuck judging">
@@ -720,16 +718,7 @@
 				<section id="basic-pa11y">
 					<section id="basic-cli">
 						<h2>pa11y cli is fun ...</h2>
-						<pre><code data-trim data-noescape>
-							pa11y https://pubconf.io/
-
-							pa11y --reporter html https://pubconf.io/ > pubconf-report.html
-
-							pa11y --ignore "warning;notice" --reporter html https://pubconf.io/ > pubconf-report.html
-
-							pa11y --standard Section508 https://pubconf.io/
-
-						</code></pre>
+						<img class="plain" src="img/cli.png" />
 						<p>but not super useful in a typical workflow</p>
 					</section>
 					<section id="cli-features">
@@ -751,180 +740,65 @@
 					</section>
 					<section id="ci-usage">
 						<p>.pa11yci</p>
-						<pre><code data-trim data-noescape>
-							{
-							  "defaults": {
-							    "standard": "WCAG2AAA"
-							  },
-							  "urls": [
-							    "http://localhost:4200/",
-							    "http://localhost:4200/posts",
-							    {
-							      "url": "http://localhost:4200/cast",
-							      "actions": [
-							        "click element #myButton",
-							        "wait for element modal-container to be hidden"
-							      ]
-							    }
-							  ]
-							}
-						</code></pre>
-
+						<img class="plain" style="height:500px" src="img/json.png" />
 					</section>
 					<section id="fail-threshold">
 						<h2>Define your fail threshold</h2>
-						<pre><code data-trim data-noescape>
-							pa11y-ci --threshold 10
-						</code></pre>
+						<img class="plain" src="img/threshold.png" />
 						<p>How many errors before "failure" is determined</p>
 					</section>
 				</section>
 				<section id="js-interface">
 					<section id="basics">
 						<h2>Using the JS Interface</h2>
-						<pre><code data-trim data-noescape>
-							var pa11y = require('pa11y');
-
-							pa11y('http://localhost:4200/', {
-								//config options
-							}).then((results) => {
-								// Do something with the results
-								console.log(result);
-							});
-						</code></pre>
+						<img class="plain" src="img/jsinterface.png" />
 					</section>
 					<section id="results-output">
 						<h2>Result output</h2>
-						<pre><code data-trim data-noescape>
-[{
-	documentTitle: 'The title of the page that was tested',
-	pageUrl: 'The URL that Pa11y was run against',
-	issues: [
-		{
-			code: 'WCAG2AA.Principle1.Guideline1_1.1_1_1.H30.2',
-			context: '<a href="http://example.com/"><img src="example.jpg" alt=""/></a>',
-			message: 'Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.',
-			selector: 'html > body > p:nth-child(1) > a',
-			type: 'error',
-			typeCode: 1
-		}
-		// more issues appear here
-	]
-}]
-						</code></pre>
+						<img class="plain" src="img/results.png" />
 					</section>
 					<section id="async-await">
 						<h2>Async, await</h2>
-						<pre><code data-trim data-noescape>
-								async function runPa11y() {
-									try {
-										const results = await pa11y('http://localhost:4200');
-										//do something with results
-									} catch (error) {
-										//deal with the error
-									}
-								};
-								runPa11y();
-							</code></pre>
+						<img class="plain" src="img/async.png" />
 					</section>
 					<section id="config-actions">
 						<h2>Actions</h2>
-						<p>To run before a11y tests start</p>
-						<pre><code data-trim data-noescape>
-							pa11y('http://localhost:4200', {
-							  actions: [
-							    'click element #tab-1',
-							    'wait for element #tab-1-content to be visible',
-							    'set field #fullname to John Doe',
-							    'check field #terms-and-conditions',
-							    'uncheck field #subscribe-to-marketing',
-							    'wait for #modal to be visible',
-							    'wait for fragment to be #page-2',
-							    'wait for path to not be /login'
-							  ]
-							});
-						</code></pre>
+						<img class="plain" src="img/actions.png" />
+						<p class="small">Sets of instructions to run before accessibility tests are run.</p>
 					</section>
 					<section id="verify-actions">
 						<h2>Actions can be verified</h2>
-						<pre><code data-trim data-noescape>
-							pa11y.isValidAction('click element #submit');  // true
-							pa11y.isValidAction('drink more champagne'); // false
-						</code></pre>
+						<img class="plain" src="img/verifyactions.png" />
 					</section>
 					<section id="config-hideElements">
 						<h2>hide Elements</h2>
-						<pre><code data-trim data-noescape>
-							pa11y('http://localhost:4200', {
-							  hideElements: '.advert, #modal, div[aria-role=presentation]'
-							});
-						</code></pre>
+						<img class="plain" src="img/hideelements.png" />
 					</section>
 					<section id="ignore">
 						<h2>ignore</h2>
-						<pre><code data-trim data-noescape>
-							pa11y('http://localhost:4200', {
-							  ignore: [
-							    'notice',
-							    'WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2'
-							  ]
-							});
-						</code></pre>
+						<img class="plain" src="img/ignoreguidelines.png" />
 					</section>
 					<section id="log">
 						<h2>log</h2>
-						<pre><code data-trim data-noescape>
-							pa11y('http://localhost:4200', {
-							  log: {
-							    debug: console.log.bind(console),
-							    error: console.error.bind(console),
-							    info: console.info.bind(console)
-							  }
-							});
-						</code></pre>
+						<img class="plain" src="img/loglevels.png" />
 					</section>
 					<section id="page">
 						<h2>page</h2>
-						<pre><code data-trim data-noescape>
-							pa11y({
-								headers: {
-									Cookie: 'foo=bar'
-								},
-								viewport: {
-									width: 1024,
-									height: 768
-								}
-							});
-						</code></pre>
+						<img class="plain" style="height:400px;" src="img/pageoptions.png" />
 						<p class="small"><a href="http://phantomjs.org/api/webpage/property/settings.html">http://phantomjs.org/api/webpage/property/settings.html</a></p>
 					</section>
 					<section id="rules-standard">
 						<h2>rules/standard</h2>
-						<pre><code data-trim data-noescape>
-							pa11y({
-							  rules: [
-							    'Principle1.Guideline1_3.1_3_1_AAA'
-							  ],
-							  standard: 'WCAG2AAA'
-							});
-						</code></pre>
+						<img class="plain" src="img/settingstandards.png" />
 					</section>
 					<section id="screencapture">
 						<h2>screen Capture</h2>
-						<pre><code data-trim data-noescape>
-							pa11y({
-							  screenCapture: __dirname + '/my-screen-capture.png'
-							});
-						</code></pre>
+						<img class="plain" src="img/screencap.png" />
+						<p>Screen capturing can be really helpful for troubleshooting.</p>
 					</section>
 					<section id="timeout-wait">
 						<h2>timeout/wait</h2>
-						<pre><code data-trim data-noescape>
-							pa11y({
-							  timeout: 500,
-							  wait: 500
-							});
-						</code></pre>
+						<img class="plain" src="img/timeout.png" />
 					</section>
 					<section id="test-v4">
 						<h2>Let's test some more websites!</h2>
@@ -949,11 +823,11 @@
 						<h2>recap</h2>
 						<ul>
 							<li class="fragment">we wrote a basic test</li>
+							<li class="fragment">we used actions to aid tests</li>
 							<li class="fragment">we output results to html file</li>
 							<li class="fragment">we created a custom report html file</li>
 							<li class="fragment">we created a custom dashboard</li>
-							<li class="fragment">we used actions to aid tests</li>
-							<li class="fragment">we ignored certain elements</li>
+							<!-- <li class="fragment">we ignored certain elements</li> -->
 						</ul>
 					</section>
 				</section>
@@ -977,7 +851,7 @@
 			</div>
 		</div>
 		<div class="twitter-overlay">
-			<span>@likeOMGitsFEDAY</span> <span>#pa11ybff</span> <span>#NDCLondon</span>
+			<span>@likeOMGitsFEDAY</span> <span>#pa11ybff</span> <span>#LonghornPHP</span>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
