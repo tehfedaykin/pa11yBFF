@@ -55,7 +55,7 @@
 						<p class="smaller"> <i>This talk may contain strong language, harsh truths, and serious passion.</i></p>
 					</div>
 				</section>
-				<section id="KC">
+				<!-- <section id="KC">
 					<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 					<svg
 						 xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -485,7 +485,7 @@
 					<div class="kc-overlay fragment">
 						<img class="plain" src="img/paulrudd1.gif" alt="Paul Rudd">
 					</div>
-				</section>
+				</section> -->
 				<section id="intro-story">
 					<h2>Accessibility - why should I care?</h2>
 					<img class="plain" src="img/morechampagne.gif" alt="I don't need friends, I need more champagne - Blair">
@@ -733,10 +733,16 @@
 					<img style="width: 60%" src="img/blairchuckjudge.gif" alt="Blair and Chuck judging">
 				</section>
 				<section id="basic-pa11y">
-					<section id="basic-cli">
-						<h2>pa11y cli is fun ...</h2>
-						<img class="plain" src="img/techoramacli.png" />
-						<p>but not super useful in a typical workflow</p>
+					<section id="basic-cli"
+						data-markdown="code/cli.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
+							<!--
+									Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
+									For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
+							-->
 					</section>
 					<section id="cli-features">
 						<h2>From the cli</h2>
@@ -755,67 +761,105 @@
 							This is best used during automated testing of your application and can act as
 							a gatekeeper to stop a11y issues from making it to live.</p>
 					</section>
-					<section id="ci-usage">
-						<p>.pa11yci</p>
-						<img class="plain" style="height:500px" src="img/json.png" />
+					<section id="ci-usage"
+						data-markdown="code/ci.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="fail-threshold">
-						<h2>Define your fail threshold</h2>
-						<img class="plain" src="img/threshold.png" />
-						<p>How many errors before "failure" is determined</p>
+					<section id="fail-threshold"
+						data-markdown="code/failthreshold.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
 				</section>
 				<section id="js-interface">
-					<section id="basics">
-						<h2>Using the JS Interface</h2>
-						<img class="plain" src="img/jsinterface.png" />
+					<section id="basics"
+						data-markdown="code/jsinterface.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="results-output">
-						<h2>Result output</h2>
-						<img class="plain" src="img/results.png" />
+					<section id="results-output"
+						data-markdown="code/results.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="async-await">
-						<h2>Async, await</h2>
-						<img class="plain" src="img/async.png" />
+					<section id="async-await"
+						data-markdown="code/async.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="config-actions">
-						<h2>Actions</h2>
-						<img class="plain" src="img/actions.png" />
-						<p class="small">Sets of instructions to run before accessibility tests are run.</p>
+					<section id="config-actions"
+						data-markdown="code/actions.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="verify-actions">
-						<h2>Actions can be verified</h2>
-						<img class="plain" src="img/verifyactions.png" />
+					<section id="verify-actions"
+						data-markdown="code/verify.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="config-hideElements">
-						<h2>hide Elements</h2>
-						<img class="plain" src="img/hideelements.png" />
+					<section id="config-hideElements"
+						data-markdown="code/hideelements.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="ignore">
-						<h2>ignore</h2>
-						<img class="plain" src="img/ignoreguidelines.png" />
+					<section id="ignore"
+						data-markdown="code/ignore-guidelines.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="log">
-						<h2>log</h2>
-						<img class="plain" src="img/loglevels.png" />
+					<section id="log"
+						data-markdown="code/log.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="page">
-						<h2>page</h2>
-						<img class="plain" style="height:400px;" src="img/pageoptions.png" />
-						<p class="small"><a href="http://phantomjs.org/api/webpage/property/settings.html">http://phantomjs.org/api/webpage/property/settings.html</a></p>
+					<section id="page"
+						data-markdown="code/page.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="rules-standard">
-						<h2>rules/standard</h2>
-						<img class="plain" src="img/settingstandards.png" />
+					<section id="rules-standard"
+						data-markdown="code/standards.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="screencapture">
-						<h2>screen Capture</h2>
-						<img class="plain" src="img/screencap.png" />
-						<p>Screen capturing can be really helpful for troubleshooting.</p>
+					<section id="screencapture"
+						data-markdown="code/screencapture.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
-					<section id="timeout-wait">
-						<h2>timeout/wait</h2>
-						<img class="plain" src="img/timeout.png" />
+					<section id="timeout-wait"
+						data-markdown="code/timeout-wait.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^Note:"
+						data-charset="iso-8859-15">
 					</section>
 					<section id="test-v4">
 						<h2>Let's test some more websites!</h2>
@@ -869,7 +913,7 @@
 			</div>
 		</div>
 		<div class="twitter-overlay">
-			<span>@likeOMGitsFEDAY</span> <span>#pa11ybff</span> <span>#techorama</span>
+			<span>@likeOMGitsFEDAY</span> <span>#pa11ybff</span> <span>#revconf</span>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
