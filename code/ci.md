@@ -1,6 +1,6 @@
 .pa11yci
 
-```json
+```javascript
 {
   "defaults": {
     "standard": "WCAG2AAA"

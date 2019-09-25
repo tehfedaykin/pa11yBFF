@@ -1,6 +1,6 @@
 ## Result Output
 
-```json
+```javascript
 [{
   documentTitle: 'The title of the page that was tested',
   pageUrl: 'The URL that Pa11y was run against',
