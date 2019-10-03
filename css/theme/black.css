@@ -60,6 +60,13 @@
   #me .warning p {
     line-height: 1.5em; }
 
+.emphasis {
+  color: #c4265b; }
+
+.emphasis-2 {
+  color: #F35919;
+  font-weight: 700; }
+
 section.has-light-background, section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
   color: #222; }
 

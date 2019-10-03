@@ -60,6 +60,13 @@
   #me .warning p {
     line-height: 1.5em; }
 
+.emphasis {
+  color: #c4265b; }
+
+.emphasis-2 {
+  color: #F35919;
+  font-weight: 700; }
+
 /**
  * Solarized colors by Ethan Schoonover
  */
